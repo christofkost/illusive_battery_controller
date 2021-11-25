@@ -12,6 +12,11 @@ class BatteryView extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Text(
+            'Illusive Battery Controller',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold),
+          ),
           Stack(
             children: [
               Transform.rotate(
@@ -40,12 +45,10 @@ class BatteryView extends StatelessWidget {
               children: [
                 FloatingActionButton(
                   onPressed: () {},
-                  elevation: 0,
                   child: Icon(Icons.add),
                 ),
                 FloatingActionButton(
                   onPressed: () {},
-                  elevation: 0,
                   child: Icon(Icons.remove),
                 ),
               ],
