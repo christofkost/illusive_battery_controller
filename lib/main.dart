@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:illusive_battery_controller/battery/battery_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,6 +10,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Illusive Battery Controller', home: Text('initial'));
+        title: 'Illusive Battery Controller', home: BatteryView());
   }
 }
