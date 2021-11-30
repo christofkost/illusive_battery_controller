@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'battery_repository.dart';
-
 const _positivePoleWidth = 15.0;
 const _variableColor = Color(0xffF3AE72);
 
