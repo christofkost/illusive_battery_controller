@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:illusive_battery_controller/battery/battery_view.dart';
 
 void main() {
@@ -10,6 +11,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Illusive Battery Controller', home: BatteryView());
+        debugShowCheckedModeBanner: false,
+        title: 'Illusive Battery Controller',
+        theme: ThemeData(
+          textTheme: GoogleFonts.montserratTextTheme(
+            Theme.of(context).textTheme,
+          ),
+        ),
+        home: BatteryView());
   }
 }
