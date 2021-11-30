@@ -16,7 +16,7 @@ import Flutter
                result(FlutterMethodNotImplemented)
                return
              }
-             self?.receiveBatteryLevel(result: result)
+             self.receiveBatteryLevel(result: result)
        })
 
        GeneratedPluginRegistrant.register(with: self)
