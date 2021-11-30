@@ -84,9 +84,7 @@ class BatteryView extends StatelessWidget {
                       primary: Colors.white,
                     ),
                     label: Text('Reset'),
-                    onPressed: () {
-                      BatteryRepository.getBatteryLevel();
-                    },
+                    onPressed: () {},
                   ),
                   FloatingActionButton(
                     backgroundColor: Colors.white,
