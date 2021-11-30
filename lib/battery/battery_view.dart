@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:illusive_battery_controller/battery/battery_controller.dart';
+import 'package:provider/provider.dart';
 
 const _positivePoleWidth = 15.0;
-const _variableColor = Color(0xffF3AE72);
 
 class BatteryView extends StatelessWidget {
   const BatteryView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final variableColor =
+        context.watch<BatteryController>().batteryUiState.backgroundColor;
     return Scaffold(
         body: Container(
-      color: _variableColor,
+      color: variableColor,
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -50,7 +53,10 @@ class BatteryView extends StatelessWidget {
                 Positioned.fill(
                   child: Center(
                       child: Text(
-                    "64%",
+                    context
+                        .watch<BatteryController>()
+                        .batteryUiState
+                        .batteryFeedback,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 60,
@@ -66,7 +72,7 @@ class BatteryView extends StatelessWidget {
                 children: [
                   FloatingActionButton(
                     backgroundColor: Colors.white,
-                    foregroundColor: _variableColor,
+                    foregroundColor: variableColor,
                     mini: true,
                     elevation: 2,
                     onPressed: () {},
@@ -82,11 +88,13 @@ class BatteryView extends StatelessWidget {
                       primary: Colors.white,
                     ),
                     label: Text('Reset'),
-                    onPressed: () {},
+                    onPressed: () {
+                      context.read<BatteryController>().getRealBatteryData();
+                    },
                   ),
                   FloatingActionButton(
                     backgroundColor: Colors.white,
-                    foregroundColor: _variableColor,
+                    foregroundColor: variableColor,
                     mini: true,
                     elevation: 2,
                     onPressed: () {},
