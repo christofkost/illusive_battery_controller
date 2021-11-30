@@ -7,8 +7,8 @@ class BatteryRepository {
     String batteryLevel;
     try {
       final int result = await platform.invokeMethod('getBatteryLevel');
-      batteryLevel = '$result % .';
-    } on PlatformException catch (e) {
+      batteryLevel = '$result % ';
+    } on PlatformException catch (_) {
       batteryLevel = "Failed to get battery level.";
     }
   }
