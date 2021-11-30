@@ -5,15 +5,18 @@ import 'package:illusive_battery_controller/battery/battery_ui_state.dart';
 class BatteryController with ChangeNotifier {
   final BatteryRepository _batteryRepository;
 
-  BatteryUiState batteryUiState = BatteryUiState();
+  BatteryUiState _batteryUiState = BatteryUiState();
+  BatteryUiState get batteryUiState {
+    return _batteryUiState;
+  }
 
   BatteryController(this._batteryRepository);
 
-  getRealBatteryData() async {
+  retreiveBatteryData() async {
     final batteryLevel = await _batteryRepository.getBatteryLevel();
     if (batteryLevel != null) {
-      batteryUiState =
-          batteryUiState.copyWith(batteryFeedback: '$batteryLevel%');
+      _batteryUiState =
+          _batteryUiState.copyWith(batteryFeedback: '$batteryLevel%');
 
       notifyListeners();
     }
