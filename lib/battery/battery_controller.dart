@@ -12,9 +12,12 @@ class BatteryController with ChangeNotifier {
 
   BatteryController(this._batteryRepository);
 
+  int _batteryLevel = -1;
+
   retreiveBatteryData() async {
     final batteryLevel = await _batteryRepository.getBatteryLevel();
     if (batteryLevel != null) {
+      _batteryLevel = batteryLevel;
       _batteryUiState =
           _batteryUiState.copyWith(batteryFeedback: '$batteryLevel%');
 
@@ -23,7 +26,7 @@ class BatteryController with ChangeNotifier {
   }
 
   increaseBatteryLevel() {
-    final numericBatteryLevel =
-        int.parse(_batteryUiState.batteryFeedback.split('%')[0]);
+    _batteryUiState =
+        _batteryUiState.copyWith(batteryFeedback: "${_batteryLevel + 1}%");
   }
 }
