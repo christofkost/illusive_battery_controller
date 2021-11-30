@@ -85,7 +85,7 @@ class BatteryView extends StatelessWidget {
                     ),
                     label: Text('Reset'),
                     onPressed: () {
-                      BatteryRepository.getBatteryLevel();
+                      BatteryRepository.instance.getBatteryLevel();
                     },
                   ),
                   FloatingActionButton(

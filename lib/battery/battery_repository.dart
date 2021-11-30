@@ -3,7 +3,12 @@ import 'dart:developer';
 import 'package:flutter/services.dart';
 
 class BatteryRepository {
-  static Future<void> getBatteryLevel() async {
+  BatteryRepository._privateConstructor();
+
+  static final BatteryRepository instance =
+      BatteryRepository._privateConstructor();
+
+  Future<void> getBatteryLevel() async {
     try {
       final int result = await MethodChannel('samples.flutter.dev/battery')
           .invokeMethod('getBatteryLevel');
