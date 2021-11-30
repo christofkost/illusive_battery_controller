@@ -21,4 +21,9 @@ class BatteryController with ChangeNotifier {
       notifyListeners();
     }
   }
+
+  increaseBatteryLevel() {
+    final numericBatteryLevel =
+        int.parse(_batteryUiState.batteryFeedback.split('%')[0]);
+  }
 }
