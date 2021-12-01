@@ -21,7 +21,7 @@ class BatteryView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: EdgeInsets.only(bottom: 50),
+              padding: EdgeInsets.only(bottom: 50, top: 50),
               child: Text(
                 'Illusive Battery Controller',
                 textAlign: TextAlign.center,
