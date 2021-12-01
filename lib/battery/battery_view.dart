@@ -73,11 +73,7 @@ class BatteryView extends StatelessWidget {
                     backgroundColor: Colors.white,
                     foregroundColor: backgroundColor,
                     elevation: 2,
-                    onPressed: () {
-                      context
-                          .read<BatteryChangeNotifier>()
-                          .changeBatteryLevel(-10);
-                    },
+                    onPressed: () {},
                     child: Icon(Icons.remove),
                   ),
                   OutlinedButton(
@@ -89,21 +85,13 @@ class BatteryView extends StatelessWidget {
                       primary: Colors.white,
                     ),
                     child: Text('Back to reality'),
-                    onPressed: () {
-                      context
-                          .read<BatteryChangeNotifier>()
-                          .setOriginalBatteryData();
-                    },
+                    onPressed: () {},
                   ),
                   FloatingActionButton(
                     backgroundColor: Colors.white,
                     foregroundColor: backgroundColor,
                     elevation: 2,
-                    onPressed: () {
-                      context
-                          .read<BatteryChangeNotifier>()
-                          .changeBatteryLevel(10);
-                    },
+                    onPressed: () {},
                     child: Icon(Icons.add),
                   ),
                 ],

@@ -8,7 +8,7 @@ class BatteryChangeNotifier with ChangeNotifier {
 
   // the following two lines can be seen as a model
   int _batteryLevel = -1;
-  int _backgroundColorHexValue = 0xFFF3AE72; // yellow color
+  final int _backgroundColorHexValue = 0xFFF3AE72; // yellow color
 
   // the remaining code of this file can be seen as controller
   int get backgroundColorHexValue {
@@ -24,26 +24,8 @@ class BatteryChangeNotifier with ChangeNotifier {
         await _batteryRepository.getBatteryLevel();
     if (batteryLevelFromRepository != null) {
       _batteryLevel = batteryLevelFromRepository;
-      _setBackgroundColorOnBaseOfBatteryLevel();
+
       notifyListeners();
     }
-  }
-
-  void _setBackgroundColorOnBaseOfBatteryLevel() {
-    if (_batteryLevel > 100) {
-      _backgroundColorHexValue = 0xFFD65D50; // red color
-    } else if (_batteryLevel > 70) {
-      _backgroundColorHexValue = 0xFF629C80; // green color
-    } else if (_batteryLevel < 20) {
-      _backgroundColorHexValue = 0xFFD65D50; // red color
-    } else {
-      _backgroundColorHexValue = 0xFFF3AE72; // yellow color
-    }
-  }
-
-  changeBatteryLevel(int increaser) {
-    _batteryLevel = _batteryLevel + increaser;
-    _setBackgroundColorOnBaseOfBatteryLevel();
-    notifyListeners();
   }
 }
