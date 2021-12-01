@@ -5,12 +5,9 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:illusive_battery_controller/battery/battery_change_notifier.dart';
 import 'package:illusive_battery_controller/battery/battery_repository.dart';
-
-import 'package:illusive_battery_controller/main.dart';
 
 void main() {
   test('Battery value should be incremented', () async {
