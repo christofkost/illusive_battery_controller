@@ -1,18 +1,21 @@
-import 'package:flutter/material.dart';
+import 'dart:developer';
 
+import 'package:flutter/material.dart';
 import 'battery_repository.dart';
 
-const _positivePoleWidth = 15.0;
-const _variableColor = Color(0xffF3AE72);
+const _batteryBorderWidth = 15.0;
 
 class BatteryView extends StatelessWidget {
   const BatteryView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final backgroundColor = Color(0xFF6EA58B);
     return Scaffold(
-        body: Container(
-      color: _variableColor,
+        body: AnimatedContainer(
+      color: backgroundColor,
+      duration: Duration(seconds: 1),
+      curve: Curves.decelerate,
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -34,17 +37,17 @@ class BatteryView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      height: 150,
+                      height: 130,
                       width: (MediaQuery.of(context).size.width) * 0.9 -
-                          _positivePoleWidth,
+                          _batteryBorderWidth,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(
-                              color: Colors.white, width: _positivePoleWidth)),
+                              color: Colors.white, width: _batteryBorderWidth)),
                     ),
                     Container(
                       height: 50,
-                      width: _positivePoleWidth,
+                      width: _batteryBorderWidth,
                       color: Colors.white,
                     )
                   ],
@@ -62,20 +65,18 @@ class BatteryView extends StatelessWidget {
               ],
             ),
             Padding(
-              padding: EdgeInsets.all(40),
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   FloatingActionButton(
                     backgroundColor: Colors.white,
-                    foregroundColor: _variableColor,
-                    mini: true,
+                    foregroundColor: backgroundColor,
                     elevation: 2,
                     onPressed: () {},
                     child: Icon(Icons.remove),
                   ),
-                  OutlinedButton.icon(
-                    icon: Icon(Icons.refresh),
+                  OutlinedButton(
                     style: OutlinedButton.styleFrom(
                       side: BorderSide(
                         width: 3.0,
@@ -83,15 +84,14 @@ class BatteryView extends StatelessWidget {
                       ),
                       primary: Colors.white,
                     ),
-                    label: Text('Reset'),
+                    child: Text('Back to reality'),
                     onPressed: () {
-                      BatteryRepository.instance.getBatteryLevel();
+                      BatteryRepository.getBatteryLevel();
                     },
                   ),
                   FloatingActionButton(
                     backgroundColor: Colors.white,
-                    foregroundColor: _variableColor,
-                    mini: true,
+                    foregroundColor: backgroundColor,
                     elevation: 2,
                     onPressed: () {},
                     child: Icon(Icons.add),
