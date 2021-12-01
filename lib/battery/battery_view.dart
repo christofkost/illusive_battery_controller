@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:illusive_battery_controller/battery/battery_controller.dart';
 import 'package:provider/provider.dart';
 
-const _positivePoleWidth = 15.0;
+const _batteryBorderWidth = 15.0;
 
 class BatteryView extends StatelessWidget {
   const BatteryView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final variableColor =
-        context.watch<BatteryController>().batteryUiState.backgroundColor;
+    final backgroundColor =
+        Color(context.watch<BatteryController>().backgroundColorHexValue);
     return Scaffold(
         body: Container(
-      color: variableColor,
+      color: backgroundColor,
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -37,15 +37,15 @@ class BatteryView extends StatelessWidget {
                     Container(
                       height: 150,
                       width: (MediaQuery.of(context).size.width) * 0.9 -
-                          _positivePoleWidth,
+                          _batteryBorderWidth,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(
-                              color: Colors.white, width: _positivePoleWidth)),
+                              color: Colors.white, width: _batteryBorderWidth)),
                     ),
                     Container(
                       height: 50,
-                      width: _positivePoleWidth,
+                      width: _batteryBorderWidth,
                       color: Colors.white,
                     )
                   ],
@@ -53,10 +53,7 @@ class BatteryView extends StatelessWidget {
                 Positioned.fill(
                   child: Center(
                       child: Text(
-                    context
-                        .watch<BatteryController>()
-                        .batteryUiState
-                        .batteryFeedback,
+                    "${context.watch<BatteryController>().batteryLevel}%",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 60,
@@ -72,10 +69,12 @@ class BatteryView extends StatelessWidget {
                 children: [
                   FloatingActionButton(
                     backgroundColor: Colors.white,
-                    foregroundColor: variableColor,
+                    foregroundColor: backgroundColor,
                     mini: true,
                     elevation: 2,
-                    onPressed: () {},
+                    onPressed: () {
+                      context.read<BatteryController>().changeBatteryLevel(-1);
+                    },
                     child: Icon(Icons.remove),
                   ),
                   OutlinedButton.icon(
@@ -89,15 +88,17 @@ class BatteryView extends StatelessWidget {
                     ),
                     label: Text('Reset'),
                     onPressed: () {
-                      context.read<BatteryController>().retreiveBatteryData();
+                      context.read<BatteryController>().setBatteryData();
                     },
                   ),
                   FloatingActionButton(
                     backgroundColor: Colors.white,
-                    foregroundColor: variableColor,
+                    foregroundColor: backgroundColor,
                     mini: true,
                     elevation: 2,
-                    onPressed: () {},
+                    onPressed: () {
+                      context.read<BatteryController>().changeBatteryLevel(1);
+                    },
                     child: Icon(Icons.add),
                   ),
                 ],
