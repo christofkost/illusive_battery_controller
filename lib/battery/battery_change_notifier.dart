@@ -8,7 +8,7 @@ class BatteryChangeNotifier with ChangeNotifier {
 
   // the following two lines can be seen as a model
   int _batteryLevel = -1;
-  int _backgroundColorHexValue = 0xFFF3AE72;
+  int _backgroundColorHexValue = 0xFFF3AE72; // yellow color
 
 // the remaining code of this file can be seen as controller
   int get backgroundColorHexValue {
