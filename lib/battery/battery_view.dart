@@ -9,10 +9,8 @@ class BatteryView extends StatelessWidget {
   Widget build(BuildContext context) {
     final backgroundColor = Color(0xFF6EA58B);
     return Scaffold(
-        body: AnimatedContainer(
+        body: Container(
       color: backgroundColor,
-      duration: Duration(seconds: 1),
-      curve: Curves.decelerate,
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
