@@ -76,7 +76,7 @@ class BatteryView extends StatelessWidget {
                     onPressed: () {
                       context
                           .read<BatteryChangeNotifier>()
-                          .changeBatteryLevel(-1);
+                          .changeBatteryLevel(-10);
                     },
                     child: Icon(Icons.remove),
                   ),
@@ -102,7 +102,7 @@ class BatteryView extends StatelessWidget {
                     onPressed: () {
                       context
                           .read<BatteryChangeNotifier>()
-                          .changeBatteryLevel(1);
+                          .changeBatteryLevel(10);
                     },
                     child: Icon(Icons.add),
                   ),
