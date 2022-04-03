@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:illusive_battery_controller/battery/battery_view.dart';
+import 'package:illusive_battery_controller/battery_view.dart';
 
 void main() {
   runApp(MyApp());
