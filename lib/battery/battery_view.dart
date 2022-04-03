@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'battery_repository.dart';
 
 const _batteryBorderWidth = 15.0;
 
@@ -10,10 +9,8 @@ class BatteryView extends StatelessWidget {
   Widget build(BuildContext context) {
     final backgroundColor = Color(0xFF6EA58B);
     return Scaffold(
-        body: AnimatedContainer(
+        body: Container(
       color: backgroundColor,
-      duration: Duration(seconds: 1),
-      curve: Curves.decelerate,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -82,9 +79,7 @@ class BatteryView extends StatelessWidget {
                     primary: Colors.white,
                   ),
                   child: Text('Back to reality'),
-                  onPressed: () {
-                    BatteryRepository.getBatteryLevel();
-                  },
+                  onPressed: () {},
                 ),
                 FloatingActionButton(
                   backgroundColor: Colors.white,
