@@ -8,6 +8,18 @@
       "name": "illusive_battery_controller",
       "request": "launch",
       "type": "dart"
+    },
+    {
+      "name": "illusive_battery_controller (profile mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile"
+    },
+    {
+      "name": "illusive_battery_controller (release mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release"
     }
   ]
 }
